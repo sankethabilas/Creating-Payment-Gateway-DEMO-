@@ -31,34 +31,34 @@ function buynow() {
     // Put the payment variables here
     var payment = {
         "sandbox": true,
-        "merchant_id": "121XXXX",    // Replace your Merchant ID
-        "return_url": undefined,     // Important
+        "merchant_id": "1227789",    // Replace your Merchant ID
+        "return_url": "http://localhost/day25.index.php",     // Important
         "cancel_url": undefined,     // Important
         "notify_url": "http://sample.com/notify",
-        "order_id": "ItemNo12345",
-        "items": "Door bell wireles",
-        "amount": "1000.00",
+        "order_id": obj["id"],
+        "items": obj["item"],
+        "amount": obj["amount"],
         "currency": "LKR",
-        "hash": "45D3CBA93E9F2189BD630ADFE19AA6DC", // *Replace with generated hash retrieved from backend
-        "first_name": "Saman",
-        "last_name": "Perera",
-        "email": "samanp@gmail.com",
-        "phone": "0771234567",
-        "address": "No.1, Galle Road",
-        "city": "Colombo",
+        "hash": obj["hash"], // *Replace with generated hash retrieved from backend
+        "first_name": obj["fname"],
+        "last_name": obj["lname"],
+        "email": obj["email"],
+        "phone": obj["mobile"],
+        "address": obj["address"],
+        "city": obj["city"],
         "country": "Sri Lanka",
-        "delivery_address": "No. 46, Galle road, Kalutara South",
-        "delivery_city": "Kalutara",
+        "delivery_address": obj["address"],
+        "delivery_city": obj["city"],
         "delivery_country": "Sri Lanka",
         "custom_1": "",
         "custom_2": ""
     };
 
     // Show the payhere.js popup, when "PayHere Pay" is clicked
-    document.getElementById('payhere-payment').onclick = function (e) {
+    //document.getElementById('payhere-payment').onclick = function (e) {
         payhere.startPayment(payment);
-    };
-    
+   // };
+
     }
   }
   r.open("GET", "buyprocess.php?q=" + qty, true);
